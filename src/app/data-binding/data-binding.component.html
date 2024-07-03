@@ -1,0 +1,15 @@
+<!-- ------------------property Binding----------- -->
+<!-- <img [src] = "imageUrl" width="200" height="100"> -->
+<div title="Naruto Uzumaki">
+    <img bind-src = 'imageUrl' width="100" height="100">
+</div>
+
+
+<!-- ---------------------two way Binding----------- -->
+<!-- <input type="text" [(ngModel)] = "name"> <br> -->
+<input [ngModel]="name" (ngModelChange)="name=$event"><br>  <!-- internal working of [(ngModel)] -->
+
+<!-- or
+<input bindon-ngModel="name"> -->
+
+Hello, {{name}}

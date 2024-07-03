@@ -1,0 +1,11 @@
+<p>
+    Hello {{ courseName }}
+</p>
+  <p (click) = "changeName()">click here</p>
+
+
+  <form>
+    <input [(ngModel)]="userInput" type="text"   class="form-control" id = "userInput" >
+    <button onchange="getBirthYear()"> Year is</button><br><br>
+  </form>
+  {{year}}

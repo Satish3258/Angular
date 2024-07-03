@@ -1,0 +1,55 @@
+<!-- ----------ngIf--------------- -->
+<div *ngIf="!submitted">
+    <form>
+        <label>UserName</label>
+        <input type = "text" #userName> <br>
+        <label>Password</label>
+        <input type = "text" #password> <br>
+    </form>
+    <button (click)="onSubmit(userName.value, password.value)">Login</button>
+</div>
+
+<div *ngIf="submitted">
+    <div *ngIf="isAuthenticated; else failureMsg">
+        <h4 class = "success"> Welcome back {{userName}}...</h4>
+    </div>
+    <ng-template #failureMsg>
+        <h4 class = "failure"> Invalid Login {{userName}}!!! please try again...</h4>
+    </ng-template>
+</div>
+
+<!-- ----------------ngFor----------------------->
+<ul>
+    <li *ngFor="let course of courses; let i = index">
+        {{i}} - {{course.name}}
+    </li>
+</ul>
+
+<!----------------ngSwitch------------------>
+<h4 >current coice is {{choice}}</h4>
+<div [ngSwitch]="choice">
+    <p *ngSwitchCase="0">No Choice</p> 
+    <p *ngSwitchCase="1">First Choice</p> 
+    <p *ngSwitchCase="2">Second Choice</p>
+    <p *ngSwitchCase="3">Third Choice</p>  
+    <p *ngSwitchDefault>Default Choice</p> 
+</div>
+
+<div>
+    <button (click)="nextChoice()">Next Choice</button>
+</div>
+
+
+<!-- ----------------CUSTOM Directive--------------------- -->
+<!-- <h3> Custom Directives...</h3>
+<p *appRepeat="6"> I'm being repeated...</p> -->
+
+
+<h3>Structural Directive with exportAs property</h3>
+<ng-template appRepeat #rd="repeat" #ct="changeText">
+  <p>I am being repeated...</p>
+</ng-template>
+<button (click)="rd.repeatElement(5)">Repeat Element</button>
+<button (click)="ct.changeElementText(10)">Change Text</button>
+
+<p [ngStyle]='{color:"red"}'>Hi Red</p>
